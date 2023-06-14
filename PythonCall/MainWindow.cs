@@ -140,5 +140,15 @@ namespace PythonCall
             writer.WriteLine(uxPythonSource.Text);
             writer.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            StreamReader sr = new StreamReader(@"test.py", Encoding.GetEncoding("UTF-8"));
+
+            uxPythonSource.Text = sr.ReadToEnd();
+
+            sr.Close();
+
+        }
     }
 }
