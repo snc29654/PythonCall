@@ -18,6 +18,14 @@ namespace PythonCall
         {
             InitializeComponent();
 
+            Encoding sjisEnc = Encoding.GetEncoding("Shift_JIS");
+            StreamWriter writer =
+              new StreamWriter("test.py", true, sjisEnc);
+            writer.WriteLine("");
+            writer.Close();
+
+
+
             PythonScript();
         }
 
@@ -114,6 +122,23 @@ namespace PythonCall
                     stream.Close();
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+
+            using (var fileStream = new FileStream("./test.py", FileMode.Open))
+            {
+                fileStream.SetLength(0);
+            }
+
+
+            Encoding sjisEnc = Encoding.GetEncoding("UTF-8");
+            StreamWriter writer =
+              new StreamWriter("test.py", true, sjisEnc);
+            writer.WriteLine(uxPythonSource.Text);
+            writer.Close();
         }
     }
 }
