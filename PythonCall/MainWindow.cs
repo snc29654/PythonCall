@@ -21,7 +21,7 @@ namespace PythonCall
             Encoding sjisEnc = Encoding.GetEncoding("Shift_JIS");
             StreamWriter writer =
               new StreamWriter("test.py", true, sjisEnc);
-            writer.WriteLine("");
+            //writer.WriteLine("");
             writer.Close();
 
 
